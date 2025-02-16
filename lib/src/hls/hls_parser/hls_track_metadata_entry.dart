@@ -21,12 +21,11 @@ class HlsTrackMetadataEntry {
     if (other is HlsTrackMetadataEntry) {
       return other.groupId == groupId &&
           other.name == name &&
-          const ListEquality<VariantInfo>()
-              .equals(other.variantInfos, variantInfos);
+          const ListEquality<VariantInfo>().equals(other.variantInfos, variantInfos);
     }
     return false;
   }
 
   @override
-  int get hashCode => hashValues(groupId, name, variantInfos);
+  int get hashCode => Object.hash(groupId, name, variantInfos);
 }
